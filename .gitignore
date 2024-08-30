@@ -7,6 +7,9 @@
 # gradle
 .gradle
 gradle.properties
+.project
+.classpath
+.settings/
 build
 examples/.idea/misc.xml
 examples/.idea/modules.xml
@@ -56,6 +59,9 @@ bld/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
+
+# VS Code options
+.vscode/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

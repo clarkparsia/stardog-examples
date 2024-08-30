@@ -7,6 +7,11 @@ ext {
 	distPath = "${projectDir}/dist"
 	stardogRepo = project.hasProperty("stardogRepo") ? project.getProperty("stardogRepo") : "http://maven.stardog.com"
 	stardogLib = project.hasProperty("stardogLib") ? project.getProperty("stardogLib") : "."
+
+	guavaVersion = "33.2.1-jre"
+	junitVersion = "4.12"
+	rdf4jRuntimeVersion = "2.2.4"
+	slf4jVersion = "2.0.13"
 }
 
 allprojects {
@@ -40,13 +45,26 @@ subprojects {
 
 	// common deps
 	dependencies {
-		implementation 'org.slf4j:slf4j-api:1.7.12'
-		implementation 'org.slf4j:slf4j-jdk14:1.7.12'
+		implementation("com.google.guava:guava:$guavaVersion") {
+			version {
+				require "$guavaVersion"
+			}
+			exclude group: "com.google.code.findbugs"
+			exclude group: "com.google.guava", module: "failureaccess"
+		}
+		implementation "org.slf4j:slf4j-api:$slf4jVersion"
+		implementation "org.slf4j:slf4j-jdk14:$slf4jVersion"
 
-		testImplementation 'junit:junit:4.12'
+		testImplementation "junit:junit:$junitVersion"
 	}
 
 	sourceSets {
+		all {
+			// work around a Gradle-metadata bug introduced in Guava v32.1.0
+			configurations.all {
+				attributes.attribute(Attribute.of("org.gradle.jvm.environment", String), "standard-jvm")
+			}
+		}
 		main {
 			java {
 				srcDir 'main/src'
