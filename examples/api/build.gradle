@@ -24,9 +24,7 @@ dependencies {
 	// external apis
 	implementation "com.complexible.stardog.rdf4j:stardog-rdf4j-core:${stardogVersion}"
 	implementation "com.complexible.stardog.jena:stardog-jena:${stardogVersion}"
-	implementation("org.eclipse.rdf4j:rdf4j-runtime:${rdf4jRuntimeVersion}") {
-		exclude group: "com.google.guava"
-	}
+	implementation "org.eclipse.rdf4j:rdf4j-runtime:${rdf4jRuntimeVersion}"
 }
 
 task execute(type:JavaExec, dependsOn: compileJava) {

@@ -49,9 +49,6 @@ subprojects {
 			version {
 				require "$guavaVersion"
 			}
-			attributes {
-				attribute(Attribute.of("org.gradle.jvm.environment", String),"standard-jvm")
-			}
 			exclude group: "com.google.code.findbugs"
 			exclude group: "com.google.guava", module: "failureaccess"
 		}
