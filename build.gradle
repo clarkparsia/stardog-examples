@@ -8,7 +8,7 @@ ext {
 	stardogRepo = project.hasProperty("stardogRepo") ? project.getProperty("stardogRepo") : "http://maven.stardog.com"
 	stardogLib = project.hasProperty("stardogLib") ? project.getProperty("stardogLib") : "."
 
-	guavaVersion = "32.1.3-jre"
+	guavaVersion = "33.2.1-jre"
 	junitVersion = "4.12"
 	rdf4jRuntimeVersion = "2.2.4"
 	slf4jVersion = "2.0.13"
@@ -60,6 +60,7 @@ subprojects {
 
 	sourceSets {
 		all {
+			// work around a Gradle-metadata bug introduced in Guava v32.1.0
 			configurations.all {
 				attributes.attribute(Attribute.of("org.gradle.jvm.environment", String), "standard-jvm")
 			}
