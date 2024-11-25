@@ -13,15 +13,15 @@
     -->
     <bean name="stardogAdmin" class="com.stardog.examples.StardogAdmin">
         <property name="to" value="testDB"/>
-        <property name="username" value="admin"/>
-        <property name="password" value="admin"/>
         <property name="url" value="http://localhost:5820"/>
+        <property name="supplier" ref="supplierFunc" />
     </bean>
+
+    <bean id="supplierFunc" class="com.stardog.examples.CCSupplier" factory-method="getSupplier" />
 
     <bean name="dataSource" class="com.complexible.stardog.ext.spring.DataSourceFactoryBean">
         <property name="to" value="testDB"/>
-        <property name="username" value="admin"/>
-        <property name="password" value="admin"/>
+        <property name="supplier" ref="supplierFunc" />
         <property name="reasoningType" value="true" />
         <property name="url" value="http://localhost:5820"/>
     </bean>

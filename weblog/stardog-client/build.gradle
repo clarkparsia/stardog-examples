@@ -12,15 +12,16 @@ repositories {
 
 dependencies {
     // Core Dependencies
-    compile ('com.complexible.stardog:client-http:6.1.0')
-    compile ('com.stardog:stardog-spring:6.1.1')
-    compile "com.complexible.stardog:server:6.1.0"
+    compile ('com.complexible.stardog:client-http:7.2.1')
+    compile ('com.stardog:stardog-spring:7.2.1')
+    compile "com.complexible.stardog:server:7.2.1"
 
     compile ('org.springframework:spring-core:4.3.10.RELEASE')
     compile ('org.springframework:spring-beans:4.3.10.RELEASE')
     compile ('org.springframework:spring-context:4.3.10.RELEASE')
     compile ('org.springframework:spring-tx:4.3.10.RELEASE')
     compile ('org.slf4j:slf4j-api:1.6.1')
+    compile group: 'com.jtransc', name: 'jtransc-rt', version: '0.6.0'
 }
 
 mainClassName = "com.stardog.examples.StardogSpringClient"

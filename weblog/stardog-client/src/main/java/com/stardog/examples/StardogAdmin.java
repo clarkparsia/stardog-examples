@@ -1,5 +1,8 @@
 package com.stardog.examples;
 
+import java.util.function.Supplier;
+
+import com.complexible.stardog.api.ConnectionCredentials;
 import com.complexible.stardog.api.admin.AdminConnection;
 import com.complexible.stardog.api.admin.AdminConnectionConfiguration;
 import org.slf4j.Logger;
@@ -15,6 +18,7 @@ public class StardogAdmin implements InitializingBean {
     private String username;
     private String password;
     private String url;
+    private Supplier<ConnectionCredentials> supplier;
 
     public String getTo() {
         return to;
@@ -44,10 +48,17 @@ public class StardogAdmin implements InitializingBean {
         return url;
     }
 
-
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public Supplier<ConnectionCredentials> getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier<ConnectionCredentials> supplier) {
+		this.supplier = supplier;
+	}
 
     /**
      *  Creates a connection to the DBMS itself so we can perform some administrative actions.

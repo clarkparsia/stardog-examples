@@ -378,3 +378,9 @@ MigrationBackup/
 
 # DotNet Sample specific files
 Ontologies.g.cs
+.project
+.settings/org.eclipse.buildship.core.prefs
+weblog/stardog-client/.classpath
+weblog/stardog-client/.project
+weblog/stardog-client/.settings/org.eclipse.buildship.core.prefs
+weblog/stardog-client/src/main/java/com/stardog/examples/CCSupplier.java
